@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="balance" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="93702ec5-536c-4244-b237-62c94eb6f5da">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<parameter name="debe" class="java.lang.String"/>
+	<parameter name="haber" class="java.lang.String"/>
+	<parameter name="deudor" class="java.lang.String"/>
+	<parameter name="acreedor" class="java.lang.String"/>
+	<parameter name="periodo" class="java.lang.String"/>
+	<field name="N CUENTA" class="java.lang.String"/>
+	<field name="CUENTA" class="java.lang.String"/>
+	<field name="DEBE" class="java.lang.String"/>
+	<field name="HABER" class="java.lang.String"/>
+	<field name="S. DEUDOR" class="java.lang.String"/>
+	<field name="S. ACREEDOR" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="70" splitType="Stretch">
+			<staticText>
+				<reportElement style="Title" x="30" y="0" width="347" height="33" forecolor="#000000" uuid="7c545f77-dc65-4051-a04a-f8aa6d9a20e7"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[PARROQUIA OLAUS PETRI]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="38" width="555" height="20" forecolor="#000000" uuid="4c5b7389-d924-4be2-9699-29c97d0e9afc"/>
+				<textElement textAlignment="Center" markup="none">
+					<font size="12" isBold="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["BALANCE DE COMPROBACION " + $P{periodo}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="22" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="20" width="555" height="1" uuid="e74911f2-856a-4cc7-b359-32866736eefe"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="0" y="0" width="53" height="20" uuid="b867d6ae-adf8-4937-91f3-3cf724e994c9"/>
+				<text><![CDATA[N CUENTA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="57" y="0" width="124" height="20" uuid="c5f9bacc-28c5-480d-8aee-79621d35761e"/>
+				<text><![CDATA[CUENTA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="185" y="0" width="90" height="20" uuid="55dcb78d-156a-4dbe-9238-a2c0d552940c"/>
+				<text><![CDATA[DEBE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="278" y="0" width="90" height="20" uuid="3841701f-4175-459b-9498-4b1900bb9f05"/>
+				<text><![CDATA[HABER]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="371" y="0" width="90" height="20" uuid="a6276253-d773-40ca-94ce-a377361f5003"/>
+				<text><![CDATA[S. DEUDOR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="464" y="0" width="90" height="20" uuid="4176ddae-b76b-4450-a0d9-f2c50108f317"/>
+				<text><![CDATA[S. ACREEDOR]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="12" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="11" width="555" height="1" uuid="c2e4689a-04a3-41cc-9de9-76c8033491dc"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="0" width="53" height="11" uuid="71b4276e-445f-4238-ab65-fcb69b333402"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{N CUENTA}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="57" y="0" width="124" height="11" uuid="ddf4ca58-242c-48e5-b4fa-fe3b15de400a"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CUENTA}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="185" y="0" width="90" height="11" uuid="7f977a99-4388-4aed-a820-f09b6c10ddeb"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DEBE}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="278" y="0" width="90" height="11" uuid="02557142-1f22-42ba-95b8-ff89b9d1569f"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{HABER}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="371" y="0" width="90" height="11" uuid="22e0b142-caf3-4aef-ad94-6628adf2169f"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{S. DEUDOR}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="464" y="0" width="90" height="11" uuid="916092f4-3a35-443a-ae90-948c742aa8dd"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{S. ACREEDOR}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="28" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="24" width="555" height="1" uuid="9b14685d-3110-4236-a1a5-0b247cca10f6"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement style="Column header" x="433" y="0" width="80" height="20" uuid="164edb4e-d58e-4a08-b017-3d7b32c60c62"/>
+				<textElement textAlignment="Right">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement style="Column header" x="513" y="0" width="40" height="20" uuid="e17069a2-7983-430f-bc03-aef0896122d2"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEE, d MMM yyyy HH:mm:ss">
+				<reportElement x="0" y="0" width="187" height="20" uuid="b0e996d5-bdbd-45c8-ab2d-732ecd644cf7"/>
+				<textElement>
+					<font fontName="Arial" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<lastPageFooter>
+		<band height="66">
+			<textField pattern="EEE, d MMM yyyy HH:mm:ss">
+				<reportElement x="0" y="46" width="187" height="20" uuid="4482211d-087d-4cf8-9c23-d02f8915e1a1"/>
+				<textElement>
+					<font fontName="Arial" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Column header" x="433" y="46" width="80" height="20" uuid="c612e064-db56-45fc-aad8-78942d6c358c"/>
+				<textElement textAlignment="Right">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement style="Column header" x="513" y="46" width="40" height="20" uuid="d7ea29a6-780a-4dbe-8705-8bc0b79e84b6"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="">
+				<reportElement x="185" y="22" width="90" height="20" uuid="414afd76-8e3f-4d4a-81ab-406775fbd1c1"/>
+				<textElement>
+					<font size="8" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{debe}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="278" y="22" width="90" height="20" uuid="179595a3-9157-4d1c-86c9-5d2a2011d6de"/>
+				<textElement>
+					<font size="8" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{haber}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="371" y="22" width="90" height="20" uuid="67ab5a27-bf54-4cc1-9b50-046d3a75fc76"/>
+				<textElement>
+					<font size="8" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{deudor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="464" y="22" width="90" height="20" uuid="a805487c-1d76-4f89-a868-407126b569b5"/>
+				<textElement>
+					<font size="8" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{acreedor}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="185" y="0" width="90" height="20" uuid="bea9c1d3-9970-4973-9533-a953cea28824"/>
+				<textElement verticalAlignment="Top"/>
+				<text><![CDATA[T. DEBE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="278" y="0" width="90" height="20" uuid="b0407ac3-97f1-45d3-a1f5-ce8f6b356ffa"/>
+				<textElement verticalAlignment="Top"/>
+				<text><![CDATA[T. HABER]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="371" y="0" width="90" height="20" uuid="272c0994-0c8c-41fb-b585-9143a9218361"/>
+				<textElement verticalAlignment="Top"/>
+				<text><![CDATA[T. S. DEUDOR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="464" y="0" width="90" height="20" uuid="a36c6d79-7a57-45a8-81a8-fc5ef1428c3c"/>
+				<textElement verticalAlignment="Top"/>
+				<text><![CDATA[T. S. ACREEDOR]]></text>
+			</staticText>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="42" width="555" height="1" uuid="a7178e2c-c240-4c7f-91da-6e9b57be7383"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</lastPageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

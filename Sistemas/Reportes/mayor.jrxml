@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="mayor" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="93702ec5-536c-4244-b237-62c94eb6f5da">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="75"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<parameter name="periodo" class="java.lang.String"/>
+	<parameter name="tipo" class="java.lang.String"/>
+	<parameter name="cuenta" class="java.lang.String"/>
+	<field name="FECHA" class="java.util.Date"/>
+	<field name="ID ASIENTO" class="java.lang.String"/>
+	<field name="OBSERVACIONES" class="java.lang.String"/>
+	<field name="DEBE" class="java.lang.String"/>
+	<field name="HABER" class="java.lang.String"/>
+	<field name="S. DEUDOR" class="java.lang.String"/>
+	<field name="S. ACREEDOR" class="java.lang.String"/>
+	<variable name="total_debe_fecha" class="java.math.BigDecimal" resetType="Group" resetGroup="fecha" calculation="Sum">
+		<variableExpression><![CDATA[new BigDecimal($F{DEBE}.replace( ".", "" ).replace( ",", "." ))]]></variableExpression>
+	</variable>
+	<variable name="total_haber_fecha" class="java.math.BigDecimal" resetType="Group" resetGroup="fecha" calculation="Sum">
+		<variableExpression><![CDATA[new BigDecimal($F{HABER}.replace( ".", "" ).replace( ",", "." ))]]></variableExpression>
+	</variable>
+	<variable name="total_deudor_fecha" class="java.math.BigDecimal" resetType="Group" resetGroup="fecha" calculation="Sum">
+		<variableExpression><![CDATA[new BigDecimal($F{S. DEUDOR}.replace( ".", "" ).replace( ",", "." ))]]></variableExpression>
+	</variable>
+	<variable name="total_acreedor_fecha" class="java.math.BigDecimal" resetType="Group" resetGroup="fecha" calculation="Sum">
+		<variableExpression><![CDATA[new BigDecimal($F{S. ACREEDOR}.replace( ".", "" ).replace( ",", "." ))]]></variableExpression>
+	</variable>
+	<group name="fecha">
+		<groupExpression><![CDATA[$F{FECHA}]]></groupExpression>
+		<groupHeader>
+			<band height="15">
+				<line>
+					<reportElement positionType="FixRelativeToBottom" x="0" y="14" width="555" height="1" uuid="86b86503-41f2-4492-96b8-8549df1bee55"/>
+				</line>
+				<frame>
+					<reportElement x="220" y="0" width="114" height="13" uuid="2b07f2de-7101-4898-8e03-79a214c62b07"/>
+					<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
+						<reportElement style="Column header" x="58" y="0" width="53" height="13" forecolor="#000000" uuid="71b4276e-445f-4238-ab65-fcb69b333402"/>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="SansSerif" size="9" isBold="false" isItalic="true" isStrikeThrough="false"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{FECHA}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement style="Column header" x="3" y="0" width="52" height="13" forecolor="#000000" uuid="c92403d0-9ffd-4454-b00a-ae85e9aadea7"/>
+						<textElement textAlignment="Right" verticalAlignment="Middle">
+							<font fontName="SansSerif" size="9" isBold="false" isItalic="true"/>
+						</textElement>
+						<text><![CDATA[FECHA:]]></text>
+					</staticText>
+				</frame>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="30">
+				<textField evaluationTime="Group" evaluationGroup="fecha" pattern="#,##0.00">
+					<reportElement style="Column header" x="177" y="1" width="83" height="13" forecolor="#000000" uuid="1fbd9b7a-bcad-4b78-98cb-7262747e0632"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="SansSerif" size="9" isBold="false" isItalic="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{total_debe_fecha}==null?"0":$V{total_debe_fecha}]]></textFieldExpression>
+				</textField>
+				<textField evaluationTime="Group" evaluationGroup="fecha" pattern="#,##0.00">
+					<reportElement style="Column header" x="264" y="1" width="80" height="13" forecolor="#000000" uuid="d4ee5dd5-cf4a-456f-a674-5713769f92ec"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="SansSerif" size="9" isBold="false" isItalic="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{total_haber_fecha}==null?"0":$V{total_haber_fecha}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement style="Column header" x="1" y="1" width="106" height="13" forecolor="#000000" uuid="b35af525-9075-4714-8260-62b409608905"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="SansSerif" size="9" isBold="false" isItalic="true"/>
+					</textElement>
+					<text><![CDATA[TOTAL DE LA FECHA]]></text>
+				</staticText>
+				<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
+					<reportElement style="Column header" x="108" y="1" width="53" height="13" forecolor="#000000" uuid="01c2f5de-d46c-4067-82bc-df3389305b43"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="SansSerif" size="9" isBold="false" isItalic="true" isStrikeThrough="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{FECHA}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<group name="asiento">
+		<groupExpression><![CDATA[$F{ID ASIENTO}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="70" splitType="Stretch">
+			<staticText>
+				<reportElement style="Title" x="30" y="0" width="347" height="33" forecolor="#000000" uuid="7c545f77-dc65-4051-a04a-f8aa6d9a20e7"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[PARROQUIA OLAUS PETRI]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="38" width="555" height="32" forecolor="#000000" uuid="4c5b7389-d924-4be2-9699-29c97d0e9afc"/>
+				<textElement textAlignment="Center" markup="none">
+					<font size="12" isBold="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["LIBRO MAYOR " + $P{tipo} + " DE " + $P{cuenta} + "\n" + $P{periodo}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="15" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="14" width="555" height="1" uuid="e74911f2-856a-4cc7-b359-32866736eefe"/>
+				<graphicElement>
+					<pen lineWidth="1.5"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="180" y="0" width="80" height="13" uuid="a6276253-d773-40ca-94ce-a377361f5003"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[DEBE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="264" y="0" width="80" height="13" uuid="4176ddae-b76b-4450-a0d9-f2c50108f317"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[HABER]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="30" y="0" width="147" height="13" uuid="1c16bb03-81e9-41b7-aeea-1710dec7da86"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[OBSERVACIONES]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="346" y="0" width="100" height="13" uuid="33281299-f101-4cae-a565-4d1f48eb41a1"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[S. DEUDOR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="453" y="0" width="100" height="13" uuid="23a38ab4-eaab-4967-820b-dc33ffb49829"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[S. ACREEDOR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="0" width="29" height="13" uuid="876b2c89-be32-49aa-946c-d82ea315544b"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Nº A.]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="12" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="11" width="555" height="1" uuid="c2e4689a-04a3-41cc-9de9-76c8033491dc"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<textField isBlankWhenNull="true">
+				<reportElement x="180" y="0" width="80" height="11" uuid="22e0b142-caf3-4aef-ad94-6628adf2169f"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DEBE}==null? "0" : $F{DEBE}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="264" y="0" width="80" height="11" uuid="916092f4-3a35-443a-ae90-948c742aa8dd"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{HABER}==null? "0" : $F{HABER}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="30" y="0" width="147" height="11" uuid="f340af63-056c-4b6d-a4c3-fecb7273badb"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{OBSERVACIONES}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="346" y="0" width="100" height="11" uuid="fc13ade7-6982-4a8b-b172-4b541500f816"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{S. DEUDOR}==null? "0" : $F{S. DEUDOR}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="453" y="0" width="100" height="11" uuid="7cdc2824-6976-4aee-bdea-a5e516d95438"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{S. ACREEDOR}==null? "0" : $F{S. ACREEDOR}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="1" y="0" width="29" height="11" uuid="ed655cfe-f924-4901-b3dd-e0dfc00caee1"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ID ASIENTO}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="28" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="24" width="555" height="1" uuid="9b14685d-3110-4236-a1a5-0b247cca10f6"/>
+				<graphicElement>
+					<pen lineWidth="1.0" lineColor="#000000"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement style="Column header" x="433" y="0" width="80" height="20" uuid="164edb4e-d58e-4a08-b017-3d7b32c60c62"/>
+				<textElement textAlignment="Right">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement style="Column header" x="513" y="0" width="40" height="20" uuid="e17069a2-7983-430f-bc03-aef0896122d2"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEE, d MMM yyyy HH:mm:ss">
+				<reportElement x="0" y="0" width="187" height="20" forecolor="#666666" uuid="b0e996d5-bdbd-45c8-ab2d-732ecd644cf7"/>
+				<textElement>
+					<font fontName="Arial" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

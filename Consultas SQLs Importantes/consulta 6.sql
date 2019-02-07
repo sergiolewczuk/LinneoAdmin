@@ -1,0 +1,2 @@
+SELECT inscripciones_carreras.id FROM inscripciones_carreras JOIN operaciones ON 
+	  (operaciones.fecha = inscripciones_carreras.fecha_inscripcion AND operaciones.hora = inscripciones_carreras.hora_inscripcion AND operaciones.pk_persona = inscripciones_carreras.id_alumno AND operaciones_detalle.id_operacion = operaciones.id)

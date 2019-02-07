@@ -1,0 +1,1 @@
+select * from operaciones_detalle join operaciones on operaciones.id = operaciones_detalle.id_operacion where relacion is null and operaciones_detalle.detalle like '%Insc%' AND operaciones.estado = 'A'

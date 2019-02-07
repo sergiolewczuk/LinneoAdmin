@@ -1,0 +1,1 @@
+SELECT * FROM operaciones_detalle JOIN operaciones ON (operaciones.id = operaciones_detalle.id_operacion) WHERE relacion IS NULL AND tipo like '%Insc%'

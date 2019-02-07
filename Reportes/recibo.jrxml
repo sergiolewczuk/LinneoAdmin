@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="recibo" language="groovy" pageWidth="612" pageHeight="1008" whenNoDataType="AllSectionsNoDetail" columnWidth="612" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="47038e2a-34fb-4707-a378-38ba66286694">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="149"/>
+	<parameter name="apenom_abonado" class="java.lang.String"/>
+	<parameter name="domicilio_abonado" class="java.lang.String"/>
+	<parameter name="dni_abonado" class="java.lang.String"/>
+	<parameter name="responsable_facturero" class="java.lang.String"/>
+	<parameter name="curso_abonado" class="java.lang.String"/>
+	<parameter name="carrera_abonado" class="java.lang.String"/>
+	<parameter name="detalles_cobros" class="java.lang.String"/>
+	<parameter name="montos_cobros" class="java.lang.String"/>
+	<parameter name="monto_en_letras" class="java.lang.String"/>
+	<parameter name="monto_total_1" class="java.lang.String"/>
+	<parameter name="num_recibo_sistema" class="java.lang.String"/>
+	<title>
+		<band height="1008">
+			<textField>
+				<reportElement x="81" y="158" width="260" height="16" uuid="800dce3d-1455-414f-8fef-200bb15df5b6"/>
+				<textElement markup="none">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{apenom_abonado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="81" y="176" width="260" height="16" uuid="20579411-8fc9-4bba-b530-794fe23e3ebf"/>
+				<textElement markup="none">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{domicilio_abonado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="42" y="194" width="299" height="16" uuid="e15138a9-394f-4180-91de-321831de4fb3"/>
+				<textElement markup="none">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{responsable_facturero}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="395" y="158" width="184" height="16" uuid="8e61121a-abf4-46ce-adea-587a3a91c5ae"/>
+				<textElement markup="none">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{curso_abonado}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="419" y="96" width="159" height="16" uuid="255ea27e-8194-47bf-8965-c1b79141fa57"/>
+				<textElement markup="none">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField pattern="h:mm a">
+				<reportElement x="489" y="113" width="89" height="16" uuid="4c122904-04b5-4b93-a682-d98a50e0cdb7"/>
+				<textElement markup="none">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="489" y="130" width="89" height="16" uuid="8065762a-d560-45cd-afde-f1c466de8515"/>
+				<textElement markup="none">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{num_recibo_sistema}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="395" y="176" width="184" height="16" uuid="625d29c0-9b66-4331-8d87-469d39ae2297"/>
+				<textElement markup="none">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{carrera_abonado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="395" y="194" width="184" height="16" uuid="d65db1fe-5a18-429c-8ac5-64adcc4d1664"/>
+				<textElement markup="none">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{dni_abonado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="94" y="397" width="127" height="16" uuid="4a5fb5c3-ac2f-4480-8218-5fe6b18fc9a8"/>
+				<textElement markup="none">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{monto_total_1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="91" y="365" width="288" height="32" uuid="2fd8b6d5-bf0b-4c29-8215-b365520cb506"/>
+				<textElement markup="none">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{monto_en_letras}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="500" y="365" width="86" height="16" uuid="b9a8f3a6-2b49-45a4-bc9e-855edb9cb979"/>
+				<textElement textAlignment="Left" markup="none">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{monto_total_1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="">
+				<reportElement x="42" y="215" width="420" height="134" uuid="1856691c-2ecf-41d0-8ec1-d415006e3cfb"/>
+				<textElement textAlignment="Right" markup="none">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{detalles_cobros}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="500" y="215" width="86" height="134" uuid="ea50db05-eca7-4e9f-826a-d215a94ac08a"/>
+				<textElement textAlignment="Left" markup="none">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{montos_cobros}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="81" y="630" width="260" height="16" uuid="ed6a8d62-f99a-407a-9b4c-bfb93ccdb1e8"/>
+				<textElement markup="none">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{apenom_abonado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="81" y="648" width="260" height="16" uuid="e3736cbe-7d05-448b-8914-a10c43d8b458"/>
+				<textElement markup="none">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{domicilio_abonado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="42" y="666" width="299" height="16" uuid="aa77cfc1-8f51-47b9-8b14-65c67a8d7031"/>
+				<textElement markup="none">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{responsable_facturero}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="394" y="630" width="184" height="16" uuid="c0bcc824-47d7-4964-9bf5-2fc00b618f59"/>
+				<textElement markup="none">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{curso_abonado}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="417" y="568" width="159" height="16" uuid="59c7cf30-02bc-48c2-9681-6a779b40c412"/>
+				<textElement markup="none">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField pattern="h:mm a">
+				<reportElement x="487" y="587" width="89" height="16" uuid="09b2d631-27ce-4c1d-ad0c-d3ea093629ab"/>
+				<textElement markup="none">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="394" y="648" width="184" height="16" uuid="a7260e00-ac6b-4aee-9e28-bda79ddcb50a"/>
+				<textElement markup="none">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{carrera_abonado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="394" y="666" width="184" height="16" uuid="2399d7e9-62ea-46a8-a078-60424d9e6bff"/>
+				<textElement markup="none">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{dni_abonado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="96" y="869" width="127" height="16" uuid="34368832-8ba3-43f6-bf57-abf372a1adaf"/>
+				<textElement markup="none">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{monto_total_1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="91" y="837" width="288" height="32" uuid="3a0b5d47-561f-4c09-a4a4-0b97c20da70b"/>
+				<textElement markup="none">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{monto_en_letras}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="500" y="837" width="86" height="16" uuid="79c94849-906a-4fc5-aa0e-02a8852a0583"/>
+				<textElement textAlignment="Left" markup="none">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{monto_total_1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="">
+				<reportElement x="42" y="687" width="420" height="134" uuid="9bb12e45-e01f-4bbe-83d9-534538b31069"/>
+				<textElement textAlignment="Right" markup="none">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{detalles_cobros}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="500" y="687" width="86" height="134" uuid="5751796c-ea10-433b-bb41-c386583aa03a"/>
+				<textElement textAlignment="Left" markup="none">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{montos_cobros}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="130" y="98" width="141" height="24" uuid="3a3ad532-cad3-46b1-a078-bff8201971ee"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Exento cumplimiento R.G. 1415 por el                               Artículo 5 - Anexo I, apartado A) inc. K]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="130" y="570" width="141" height="24" uuid="525030f7-99bc-4840-b124-0c878ef12e95"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Exento cumplimiento R.G. 1415 por el                               Artículo 5 - Anexo I, apartado A) inc. K]]></text>
+			</staticText>
+		</band>
+	</title>
+</jasperReport>

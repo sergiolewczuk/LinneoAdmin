@@ -1,0 +1,4 @@
+// v. 1.8.1
+
+	- Corregido 'Cambiar Curso del Alumno'
+	- Corregido Inscripciones
